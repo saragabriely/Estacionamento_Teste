@@ -1,0 +1,80 @@
+﻿
+
+@{
+    ViewBag.Title = "Pessoa Jurídica";
+}
+
+<table width="100%" style="margin: 5px;">
+
+    <tr>
+        <td width="88%"><h2> Pesquisar PJ </h2></td>
+
+        <td> <a href="@Url.Action("Cadastro", new { id = 1 })" class="btn btn-success">CADASTRAR</a> </td>
+    </tr>
+
+</table>
+
+
+<table id="divEscolha_BuscaPF" cellspacing="5" class="table">
+
+    <tr>
+
+        <td style="vertical-align: middle;"> CNPJ </td>
+        <td>
+            <input class="form-control" />
+        </td>
+
+        <td class="td_form" style="vertical-align: middle;"> Razão Social </td>
+        <td>
+            <input class="form-control" />
+        </td>
+
+        <td class="td_form" style="vertical-align: middle;"> Nome Fantasia </td>
+        <td>
+            <input class="form-control" />
+        </td>
+
+        <td>
+            <input type="button" id="btnBuscar" class="btn btn-primary" style="width: 110px;" value="BUSCAR" />
+        </td>
+    </tr>
+</table>
+
+<table class="table">
+
+    <thead>
+
+        <tr>
+
+            <th>ID</th>
+            <th>CNPJ</th>
+            <th>Razão Social</th>
+            <th>Telefone</th>
+            <th>Editar</th>
+
+        </tr>
+
+        <tr>
+            <td>1</td>
+            <td>14777777000000</td>
+            <td>Estacionamento WSA</td>
+            <td>11957778969</td>
+            <td> <a href="@Url.Action("Visualiza", new { id = 1 })" class="btn btn-info">Editar</a> </td>
+
+        </tr>
+
+    </thead>
+
+</table>
+
+
+
+
+
+
+
+
+
+
+
+

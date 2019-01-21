@@ -1,0 +1,146 @@
+﻿
+
+@{
+    ViewBag.Title = "Cadastro - PF ";
+}
+
+<h2> Cadastro de Pessoa Física</h2> <br />
+
+<!---------------- PESSOA FISICA - CADASTRO - CAMPOS --------------------------------->
+<form action="/PessoaFisica/Atualiza" method="post">
+
+
+    <table id="tbCadastroPF" class="table">
+
+        <tr>
+            <td>Nome *</td>
+            <td>
+                <input id="ipPF_Nome" style="background-color: gainsboro; " class="form-control" name="pessoa.Nome" value="@ViewBag.Pessoa.Nome" />
+            </td>
+
+            <td class="td_form">CPF *</td>
+            <td>
+                <input id="ipPF_CPF" style="background-color: gainsboro; "  class="form-control" size="11" maxlength="11" name="pessoa.Cpf" value="@ViewBag.Pessoa.Cpf"  />
+            </td>
+
+            <td class="td_form">RG *</td>
+            <td>
+                <input id="ipPF_RG" style="background-color: gainsboro; "  class="form-control" size="9" maxlength="9" name="pessoa.Rg" value="@ViewBag.Pessoa.Rg" />
+            </td>
+
+        </tr>
+        <tr>
+
+            <td>Sexo</td>
+            <td>
+                <select id="idSexo" class="form-control">
+
+                    <option value="F"> Feminino </option>
+                    <option value="M"> Masculino </option>
+
+                </select>
+            </td>
+
+            <!--
+        <td>Sexo</td>
+        <td>
+            <input type="radio" id="sexoPF_F" name="escolhaSexo" checked>
+            <label for="huey" style="padding: 5px; "> Feminino  </label>
+
+            <input type="radio" id="sexoPF_M" name="escolhaSexo" />
+            <label for="huey" style="padding: 5px;">  Masculino  </label>
+        </td>
+        -->
+
+            <td class="td_form">Data de Nascimento</td>
+            <td>
+                <input id="ipPF_Nascimento" style="background-color: gainsboro; " class="form-control" size="10" maxlength="10" name="pessoa.DataDeNascimento" value="@ViewBag.Pessoa.DataDeNascimento" />
+            </td>
+
+            <td class="td_form">Telefone</td>
+            <td>
+                <input id="ipPF_Telefone" style="background-color: gainsboro; " class="form-control" size="11" maxlength="11" name="pessoa.Telefone" value="@ViewBag.Pessoa.Telefone" />
+            </td>
+
+        </tr>
+        <tr>
+
+            <td>Endereço</td>
+            <td>
+                <input id="ipPF_Endereco" style="background-color: gainsboro; "  class="form-control" name="pessoa.Endereco" value="@ViewBag.Pessoa.Endereco" />
+            </td>
+
+            <td class="td_form">Número</td>
+            <td>
+                <input id="ipPF_Numero" style="background-color: gainsboro; "  class="form-control" size="6" maxlength="6" name="pessoa.Numero" value="@ViewBag.Pessoa.Numero" />
+            </td>
+
+            <td class="td_form">Complemento</td>
+            <td>
+                <input id="ipPF_Complemento" style="background-color: gainsboro;" class="form-control" name="pessoa.Complemento" value="@ViewBag.Pessoa.Complemento" />
+            </td>
+
+        </tr>
+
+        <tr>
+
+            <td>Bairro</td>
+            <td>
+                <input id="ipPF_Bairro" style="background-color: gainsboro; "  class="form-control" name="pessoa.Bairro" value="@ViewBag.Pessoa.Bairro" />
+            </td>
+
+            <td class="td_form">Cidade</td>
+            <td> 
+                <input id="ipPF_Cidade" style="background-color: gainsboro; "  class="form-control" name="pessoa.Cidade" value="@ViewBag.Pessoa.Cidade" />
+            </td>
+
+            <td class="td_form">UF</td>
+            <td>
+                <input id="ipPF_UF" style="background-color: gainsboro; "  class="form-control" size="2" maxlength="2" type="text" name="pessoa.Uf" value="@ViewBag.Pessoa.Uf" />
+            </td>
+
+        </tr>
+        <tr>
+
+            <td>CEP</td>
+            <td>
+                <input id="ipPF_CEP" style="background-color: gainsboro; " class="form-control" type="number" name="pessoa.Cep" value="@ViewBag.Pessoa.Cep" />
+            </td>
+
+            <td class="td_form">E-mail</td>
+            <td>
+                <input id="ipPF_Email" style="background-color: gainsboro;" class="form-control" name="pessoa.Email" value="@ViewBag.Pessoa.Email" />
+            </td>
+
+            <td class="td_form">Id</td>
+            <td>
+                <input id="ipPF_Id" style="background-color: gainsboro;" class="form-control" name="pessoa.IdPessoaF" value="@ViewBag.Pessoa.IdPessoaF" readonly>
+            </td>
+        </tr>
+
+    </table>
+
+    <!-- BOTÕES -->
+    <div id="botoes">
+
+        <!-- Btn - Salvar -->
+        <input id="btnSalvar_PF" type="submit" class="btn btn-success" style="width: 120px; margin: 5px;" value="ATUALIZAR" />
+
+        <!-- Btn - Cancelar -->
+        <a href="@Url.Action("Index", new { id = 1 })" id="btnCancelar_PF" class="btn btn-danger" style="width: 120px; margin: 5px;">CANCELAR</a>
+
+    </div>
+
+    <br />
+
+    <h4>@Html.ActionLink("Voltar", "Index", "PessoaFisica")</h4>
+
+    <br />
+
+    <h5>* - Campo obrigatório.</h5>
+
+</form>
+
+
+
+

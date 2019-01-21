@@ -1,0 +1,111 @@
+﻿
+
+@{
+    ViewBag.Title = "Cadastro - PJ ";
+}
+
+<h2> Cadastro de Pessoa Juridica</h2> <br />
+
+<!---------------- PESSOA JURIDICA - CADASTRO - CAMPOS --------------------------------->
+<table id="tbCadastroPF" class="table">
+
+    <tr>
+        <td>Razão Social *</td>
+        <td>
+            <input id="ipPJ_RazaoSocial" class="form-control" />
+        </td>
+
+        <td class="td_form">Nome Fantasia *</td>
+        <td>
+            <input id="ipPJ_NomeFantasia" class="form-control" size="11" maxlength="11" />
+        </td>
+
+        <td class="td_form">CNPJ *</td>
+        <td>
+            <input id="ipPJ_CNPJ" class="form-control" size="14" maxlength="14" />
+        </td>
+
+    </tr>
+    <tr>
+
+        <td>Telefone</td>
+        <td>
+            <input id="ipPF_Telefone" class="form-control" size="11" maxlength="11" />
+        </td>
+
+        <td class="td_form">Telefone 02</td>
+        <td>
+            <input id="ipPJ_Telefone02" class="form-control" size="11" maxlength="11" />
+        </td>
+
+        <td class="td_form">E-mail</td>
+        <td>
+            <input id="ipPJ_Email" class="form-control" size="50" maxlength="50" />
+        </td>
+
+    </tr>
+    <tr>
+
+        <td>Endereço</td>
+        <td>
+            <input id="ipPF_Endereco" class="form-control" />
+        </td>
+
+        <td class="td_form">Número</td>
+        <td>
+            <input id="ipPF_Numero" class="form-control" size="6" maxlength="6" />
+        </td>
+
+        <td class="td_form">Complemento</td>
+        <td>
+            <input id="ipPF_Complemento" class="form-control" />
+        </td>
+
+    </tr>
+
+    <tr>
+        <td>Bairro</td>
+        <td>
+            <input id="ipPF_Bairro" class="form-control" />
+        </td>
+
+        <td class="td_form">Cidade</td>
+        <td>
+            <input id="ipPF_Cidade" class="form-control" />
+        </td>
+
+        <td class="td_form">UF</td>
+        <td>
+            <input id="ipPF_UF" class="form-control" size="2" maxlength="2" type="text" />
+        </td>
+
+    </tr>
+    <tr>
+
+        <td>CEP</td>
+        <td>
+            <input id="ipPF_CEP" class="form-control" type="number" />
+        </td>
+
+    </tr>
+
+</table>
+
+<div id="botoes">
+
+    <button id="btnCadastrar_PJ" type="button" class="btn btn-success" style="width: 120px; margin: 5px;"> ATUALIZAR </button>
+
+    <a href="@Url.Action("Index", new { id = 1 })" id="btnCancelar_PJ" class="btn btn-danger" style="width: 120px; margin: 5px;">CANCELAR</a>
+
+</div>
+
+<br />
+
+<h4>@Html.ActionLink("Voltar", "Index")</h4>
+
+<br />
+
+<h5>* - Campo obrigatório.</h5>
+
+
+
