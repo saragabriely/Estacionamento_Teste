@@ -10,14 +10,14 @@ namespace Estacionamento_.Controllers
 {
     public class PessoaFisicaController : Controller
     {
+        PFisicaDAO dao = new PFisicaDAO();
+        
         // GET: PessoaFisica
         public ActionResult Index()
         {
-            PFisicaDAO dao = new PFisicaDAO();
-
             var pessoas = dao.Lista().OrderBy(e => e.Nome);
 
-            return View(pessoas);
+            return View(pessoas);       
         }
 
         // Cadastro
@@ -31,14 +31,40 @@ namespace Estacionamento_.Controllers
         // Visualiza
         [Route("pessoasF/{id}", Name = "VisualizaPessoaF")]
         public ActionResult Visualiza(int id)
-        { // int id
-            PFisicaDAO dao = new PFisicaDAO();
-
+        {
             PessoaFisica pessoa = dao.BuscaId(id);
 
             ViewBag.Pessoa = pessoa;
             
             return View();
+        }
+
+        public ActionResult Busca()
+        {
+            PessoaFisica busca = new PessoaFisica();
+
+            ViewBag.Busca = busca;
+
+            return View();
+        }
+
+        public ActionResult Pesquisar(string cpf)
+        {
+            if (cpf == null)
+            {
+                return View("Busca");
+            }
+            else
+            {
+               // PessoaFisica pessoa = new PessoaFisica();
+
+                // pessoa = dao.BuscaPorCpf(cpf);
+
+                var pessoas = dao.Lista().OrderBy(e => e.Nome).Where(e => e.Cpf.Equals(cpf));
+
+                return View(pessoas);
+            }
+            
         }
         
         public ActionResult Atualiza(PessoaFisica pessoa)
@@ -46,8 +72,6 @@ namespace Estacionamento_.Controllers
 
             if (ModelState.IsValid) // Verifica se o modelo obedece as regras de validação
             {
-                PFisicaDAO dao = new PFisicaDAO();
-
                 dao.Atualiza(pessoa);
 
                 return RedirectToAction("Index", "PessoaFisica");
@@ -60,49 +84,44 @@ namespace Estacionamento_.Controllers
             }
         }
 
-        /*
-         * 
-         * 
-         * [Route("produtos/{id}", Name = "VisualizaProduto")]
-            public ActionResult Visualiza(int id)
-            {
-                ProdutosDAO dao = new ProdutosDAO();
-                Produto produto = dao.BuscaPorId(id);
-                ViewBag.Produto = produto;
-                return View();
-            }
-         *
-         *
-        public ActionResult Form()
-        {
-            CategoriasDAO categoriasDAO = new CategoriasDAO();
-
-            IList<CategoriaDoProduto> categorias = categoriasDAO.Lista();
-
-            ViewBag.Categorias = categorias;
-
-            ViewBag.Produto = new Produto();
-
-            return View();
-        } */
-
-        [HttpPost] // Só aceita requisições enviadas pelo método POST
+        [HttpPost] 
        // [ValidateAntiForgeryToken]
         public ActionResult Adiciona(PessoaFisica pessoa)
         {
-            if (ModelState.IsValid) // Verifica se o modelo obedece as regras de validação
-            {
-                PFisicaDAO dao = new PFisicaDAO();
+            PessoaFisica verificaCpf = new PessoaFisica();
+            PessoaFisica verificaRg  = new PessoaFisica();
 
+            verificaCpf = dao.BuscaPorCpf(pessoa.Cpf);
+            verificaRg  = dao.BuscaPorRg(pessoa.Rg);
+
+            if (ModelState.IsValid && verificaCpf == null && verificaRg == null) // Verifica se o modelo obedece as regras de validação
+            {
                 dao.Adiciona(pessoa);
 
                 return RedirectToAction("Index", "PessoaFisica");
             }
             else
             {
-                ViewBag.PessoaF = pessoa;
-                
-                return View("Index");
+                if(verificaCpf != null)
+                {
+                    ViewBag.Pessoa = pessoa;
+                    ViewBag.Retorno = "CPF já cadastrado!";
+
+                    return View("Cadastro");
+                }
+                else if(verificaRg != null)
+                {
+                    ViewBag.Pessoa = pessoa;
+                    ViewBag.Retorno = "RG já cadastrado!";
+
+                    return View("Cadastro");
+                }
+                else
+                {
+                    ViewBag.Pessoa = pessoa;
+
+                    return View("Cadastro");
+                }
             }
         }
 

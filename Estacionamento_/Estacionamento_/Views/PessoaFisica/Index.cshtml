@@ -1,92 +1,61 @@
-﻿<!-- model IList<Estacionamento_.Models.PessoaFisica>
- -->
-
+﻿
 @model IEnumerable<Estacionamento_.Models.PessoaFisica>
 
 @{
     ViewBag.Title = "Pessoa Física";
 }
 
-<!--
-<h2> Pesquisar  <input type="button" class="btn btn-success" style="text-align: end" value="CADASTRAR" /> </h2> <br />
-    -->
-
-
 <table width="100%" style="margin: 5px;">
 
     <tr>
-        <td width="86%"><h2> Pesquisar PF </h2></td>
+        <td width="70%"><h2> Clientes - Pessoa F </h2></td>
 
-        <td> <a href="@Url.Action("Cadastro", new { id = 1 })" class="btn btn-success">CADASTRAR</a> </td>
+        <td> <a href="@Url.Action("Busca",    new { id = 1 })" class="btn btn-primary" style="width: 120px; margin: 5px;">BUSCAR</a> </td>
+
+        <td> <a href="@Url.Action("Cadastro", new { id = 1 })" class="btn btn-success" style="width: 120px; margin: 5px;">CADASTRAR</a> </td>
     </tr>
 
 </table>
 
+<form >
 
-<table id="divEscolha_BuscaPF" cellspacing="5" class="table">
+    <br />
 
-    <tr>
-        <!-- CPF -->
-        <td style="vertical-align: middle;"> CPF </td>
-        <td>
-            <input class="form-control" id="ipBusca_CPF"  />
-        </td>
+    <table class="table" style="visibility: visible; ">
 
-        <!-- RG -->
-        <td class="td_form" style="vertical-align: middle;" id="ipBusca_RG" > RG </td>
-        <td>
-            <input class="form-control" />
-        </td>
+        <thead>
 
-        <!-- Nome -->
-        <td class="td_form" style="vertical-align: middle;" id="ipBusca_Nome" > Nome </td>
-        <td>
-            <input class="form-control" />
-        </td>
-
-        <!-- Btn - Buscar -->
-        <td>
-            <input type="button" id="btnBuscar" class="btn btn-primary" style="width: 110px;" value="BUSCAR" />
-        </td>
-    </tr>
-</table>
-
-<br />
-
-<table class="table" style="visibility: visible; ">
-
-    <thead>
-
-        <tr>
-
-            <th class="td_form"> ID     </th>
-            <th class="td_form"> Nome    </th>
-            <th class="td_form"> CPF     </th>
-            <th class="td_form"> Telefone</th>
-            <th class="td_form"> Editar  </th>
-
-        </tr>
-
-    </thead>
-
-    <tbody>
-
-        @foreach (var pessoa in Model)
-         {
             <tr>
-                <td class="td_form">@pessoa.IdPessoaF </td>
-                <td class="td_form">@pessoa.Nome      </td>
-                <td class="td_form">@pessoa.Cpf       </td>
-                <td class="td_form">@pessoa.Telefone  </td>
-                <td class="td_form"> <a href="@Url.Action("Visualiza", new { id = pessoa.IdPessoaF })" class="btn btn-info" style="width: 80px;">Editar</a> </td>
+
+                <th class="td_form"> ID     </th>
+                <th class="td_form"> Nome    </th>
+                <th class="td_form"> CPF     </th>
+                <th class="td_form"> Telefone</th>
+                <th class="td_form"> Editar  </th>
+
             </tr>
-         }
 
-    </tbody>
+        </thead>
 
-</table>
+        <tbody>
 
-<br />
-<br />
-<br />
-<br />
+            @foreach (var pessoa in Model)
+             {
+                <tr>
+                    <td class="td_form">@pessoa.IdPessoaF </td>
+                    <td class="td_form">@pessoa.Nome      </td>
+                    <td class="td_form">@pessoa.Cpf       </td>
+                    <td class="td_form">@pessoa.Telefone  </td>
+                    <td class="td_form"> <a href="@Url.Action("Visualiza", new { id = pessoa.IdPessoaF })" class="btn btn-info" style="width: 80px;">Editar</a> </td>
+                </tr>
+             }
+
+        </tbody>
+
+    </table>
+
+    <br />
+    <br />
+    <br />
+    <br />
+</form>

@@ -24,25 +24,10 @@ namespace Estacionamento_.DAO
             return db.PFs.ToList();
         }
 
-
-        /*
-        public IList<PessoaFisica> Lista()
-        {
-            using (var contexto = new EstacionamentoContext())
-            {
-                return contexto.PFs.ToList();
-            }
-        }
-        */
-
         public PessoaFisica BuscaId(int id)
         {
             using (var contexto = new EstacionamentoContext())
             {
-                //return contexto.PFs.Where(p => p.IdPessoaF.Equals(id)).FirstOrDefault();
-
-                //var pessoa = contexto.PFs.Where(p => p.IdPessoaF.Equals(id)).FirstOrDefault();
-
                 PessoaFisica pessoa = db.PFs.FirstOrDefault(e => e.IdPessoaF == id);
 
                 return pessoa;

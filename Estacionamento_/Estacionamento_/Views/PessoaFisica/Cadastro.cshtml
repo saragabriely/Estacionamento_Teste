@@ -125,9 +125,7 @@
 
     <div id="botoes">
 
-        <!-- Btn - Cadastrar - ->
-        <button id="btnCadastrar_PF" type="submit" class="btn btn-success" style="width: 120px; margin: 5px;"> CADASTRAR </button> -->
-
+        <!-- Btn - Cadastrar -->
         <input id="btnCadastrar_PF" type="submit" class="btn btn-success" style="width: 120px; margin: 5px;" value="CADASTRAR" /> 
 
         <!-- Btn - Cancelar -->
@@ -137,10 +135,14 @@
 
     <br />
 
-    <h4>@Html.ActionLink("Voltar", "Index", "PessoaFisica")</h4>
+    <label style="color: red; " >@ViewBag.Retorno</label>
 
     <br />
 
-    <h5>* - Campo obrigatório.</h5>
+    <h5>@Html.ActionLink("Voltar", "Index", "PessoaFisica")</h5>
+
+    <br /><br>
+
+    <h6>* Campo obrigatório</h6>
 
 </form>

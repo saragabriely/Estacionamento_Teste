@@ -226,6 +226,7 @@
     <Content Include="Views\PessoaJuridica\Cadastro.cshtml" />
     <Content Include="Views\PessoaFisica\Visualiza.cshtml" />
     <Content Include="Views\PessoaJuridica\Visualiza.cshtml" />
+    <Content Include="Views\PessoaFisica\Busca.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

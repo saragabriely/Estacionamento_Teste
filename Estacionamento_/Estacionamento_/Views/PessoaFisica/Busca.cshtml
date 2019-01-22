@@ -1,0 +1,77 @@
+﻿
+@model IList<Estacionamento_.Models.PessoaFisica>
+
+@{
+    ViewBag.Title = "Pessoa Física";
+}
+
+<form action="/PessoaFisica/Pesquisar" method="post">
+
+    <h2> Busca - Pessoa Física </h2>
+    <br />
+
+    <table id="divEscolha_BuscaPF" cellspacing="5" class="table">
+
+        <tr>
+            <!-- CPF -->
+            <td style="vertical-align: middle;"> CPF </td>
+            <td>
+                <input class="form-control" id="ipBusca_CPF" name="cpf" value="@ViewBag.cpf" maxlength="11" size="11"  />
+            </td>
+
+            <!-- RG -->
+            <td class="td_form" style="vertical-align: middle;"> RG </td>
+            <td>
+                <input class="form-control" id="ipBusca_RG" maxlength="9" size="9" />
+            </td>
+
+            <!-- Nome -->
+            <td class="td_form" style="vertical-align: middle;"> Nome </td>
+            <td>
+                <input class="form-control" id="ipBusca_Nome" />
+            </td>
+
+            <!-- Btn - Buscar -->
+            <td>
+                <input type="submit" id="btnBuscar" class="btn btn-primary" style="width: 110px;" value="BUSCAR" />
+            </td>
+        </tr>
+    </table>
+
+    <table class="table" style="visibility: visible; ">
+
+        <thead>
+
+            <tr>
+
+                <th class="td_form"> ID     </th>
+                <th class="td_form"> Nome    </th>
+                <th class="td_form"> CPF     </th>
+                <th class="td_form"> Telefone</th>
+                <th class="td_form"> Editar  </th>
+
+            </tr>
+
+        </thead>
+        
+        <tbody>
+           
+            @foreach (var pessoa in Model)
+            {
+                <tr>
+                    <td class="td_form">@pessoa.IdPessoaF </td>
+                    <td class="td_form">@pessoa.Nome      </td>
+                    <td class="td_form">@pessoa.Cpf       </td>
+                    <td class="td_form">@pessoa.Telefone  </td>
+                    <td class="td_form"> <a href="@Url.Action("Visualiza", new { id = pessoa.IdPessoaF })" class="btn btn-info" style="width: 80px;">Editar</a> </td>
+                </tr>
+            }
+            
+        </tbody>
+
+    </table> 
+
+</form>
+
+<br /><br /><br /><br />
+
